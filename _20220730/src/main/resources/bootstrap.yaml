@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:spring-extension}
+nacos:
+  username: ${NACOS_USERNAME:nacos}
+  password: ${NACOS_PASSWORD:nacos}
+  config:
+    server-addr: ${NACOS_CONFIG_SERVER_ADDR:127.0.0.1:8848}
+    namespace: ${NACOS_CONFIG_NAMESPACE:public}
+    file-extension: yaml
+    maxRetry: 10
+
+## naocs 中的内容
+developer:
+  name: mayee
+  age: 28

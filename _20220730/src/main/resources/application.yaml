@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+developer:
+  name: bobby
+  age: 18

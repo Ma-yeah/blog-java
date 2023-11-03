@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: feign-service-a
+
+logging:
+  level:
+    com.mayee: debug

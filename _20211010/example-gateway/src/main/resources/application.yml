@@ -1,0 +1,10 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: example-gateway
+
+dynamic:
+  router:
+    enable: true
+    data-id: example-gateway-router.json

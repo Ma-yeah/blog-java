@@ -1,0 +1,9 @@
+# 自动装配
+# org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.mayee.spring.extension.spi.UserAutoConfiguration
+
+# PropertySourceLoader
+org.springframework.boot.env.PropertySourceLoader=com.mayee.spring.extension.propertysourceloader.JsonPropertySourceLoader
+
+# web use
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.mayee.spring.web.config.LoadNacosConfig

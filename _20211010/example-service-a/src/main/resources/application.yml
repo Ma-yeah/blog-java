@@ -1,0 +1,5 @@
+server:
+  port: 9501
+spring:
+  application:
+    name: example-service-a

@@ -1,0 +1,5 @@
+# Project exclude paths
+target
+idea
+.flattened-pom.xml
+*.iml

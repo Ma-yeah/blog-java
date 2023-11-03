@@ -1,0 +1,133 @@
+{
+  "routeList": [
+    {
+      "id": "router-http",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/demoA/**"
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "name": "PreserveHostHeader"
+        }
+      ],
+      "uri": "http://127.0.0.1:9501",
+      "order": 5
+    },
+    {
+      "id": "router-lb",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/demoB/**"
+          ]
+        },{
+          "name": "Header",
+          "values": ["load-balance, true"]
+        }
+      ],
+      "filters": [
+        {
+          "name": "PreserveHostHeader"
+        }
+      ],
+      "uri": "lb://example-service-b",
+      "order": 5
+    },
+    {
+      "id": "router-prefix",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/prefixA/get"
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "name": "PrefixPath",
+          "args": {
+            "prefix": "/prefix"
+          }
+        }
+      ],
+      "uri": "lb://example-service-a",
+      "order": 5
+    },
+    {
+      "id": "router-strip",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/strip/stripB/get"
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "name": "StripPrefix",
+          "args": {
+            "parts": "1"
+          }
+        }
+      ],
+      "uri": "lb://example-service-b",
+      "order": 5
+    },
+    {
+      "id": "router-addheader",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/demoA/add/header"
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "name": "PreserveHostHeader"
+        },
+        {
+          "name":"AddRequestHeader",
+          "args":{
+            "name":"add-name",
+            "value":"add-value"
+          }
+        }
+      ],
+      "uri": "http://127.0.0.1:9501",
+      "order": 4
+    },{
+      "id": "router-rmheader",
+      "predicates": [
+        {
+          "name": "Path",
+          "values": [
+            "/demoA/remove/header"
+          ]
+        }
+      ],
+      "filters": [
+        {
+          "name": "PreserveHostHeader"
+        },
+        {
+          "name":"RemoveRequestHeader",
+          "args":{
+            "name":"remove-name"
+          }
+        }
+      ],
+      "uri": "http://127.0.0.1:9501",
+      "order": 4
+    }
+  ]
+}

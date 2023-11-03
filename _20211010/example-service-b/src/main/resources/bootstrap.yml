@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#      routes:
+#        - id: example
+#          uri: http://127.0.0.1:8080
+#          predicates:
+#            - Path=/**
+    nacos:
+      username: ${NACOS_USERMAME:nacos}
+      password: ${NACOS_PASSWORD:nacos}
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dev_java
+        file-extension: yaml
+        max-retry: 5
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: dev_java
+        # 使用 nacos 的服务注册与发现功能
+        enabled: true
+        register-enabled: true

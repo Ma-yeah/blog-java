@@ -1,0 +1,8 @@
+server:
+  port: 9502
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+spring:
+  application:
+    name: example-service-b
